@@ -6,10 +6,10 @@ import java.net.URI
 
 abstract class SettingsPlugin : Plugin<Settings> {
     override fun apply(settings: Settings) {
-        val extension = settings.extensions.create(
-            "hjelpemidlerSettings",
-            SettingsPluginExtension::class.java,
-        )
+        val catalogVersionProvider = settings
+            .providers
+            .gradleProperty("hmKatalogVersion")
+            .orElse("0.2.24")
 
         settings.dependencyResolutionManagement.apply {
             @Suppress("UnstableApiUsage")
@@ -31,7 +31,9 @@ abstract class SettingsPlugin : Plugin<Settings> {
 
             versionCatalogs.apply {
                 create("libs").apply {
-                    from("no.nav.hjelpemidler:hm-katalog:0.1.37")
+                    val version = catalogVersionProvider.get()
+                    println("hmKatalogVersion: $version")
+                    from("no.nav.hjelpemidler:hm-katalog:$version")
                 }
             }
         }

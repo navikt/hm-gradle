@@ -4,14 +4,11 @@ plugins {
 
 dependencies {
     implementation(libs.classgraph)
-
-    implementation(libs.jackson.databind)
-    implementation(libs.jackson.datatype.jsr310)
-    implementation(libs.jackson.module.kotlin)
-
+    implementation(libs.jackson.annotations)
     implementation(libs.microprofile.openapi.api)
 
-    testImplementation(libs.microprofile.openapi.api)
+    runtimeOnly(libs.kotlin.reflect)
+
     testImplementation(libs.ktor.server.core)
 }
 

@@ -17,14 +17,8 @@ class SettingsPluginFunctionalTest {
     fun `Settings plugin is applied`() {
         settingsFile.writeText(
             """
-                import no.nav.hjelpemidler.gradle.plugin.settings.SettingsPluginExtension
-                
                 plugins {
                     id("no.nav.hjelpemidler.settings")
-                }
-                
-                configure<SettingsPluginExtension> {
-                    catalogVersion = "0.1.36"
                 }
             """.trimIndent()
         )

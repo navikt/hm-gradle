@@ -1,13 +1,13 @@
 [versions]
 coroutines = "1.8.0"
-graphql = "7.0.2"
-jackson = "2.17.0"
-kotest = "5.8.1"
+graphql = "7.1.1"
+jackson = "2.17.1"
+kotest = "5.9.1"
 kotlin = "1.9.22"
-ktor = "2.3.9"
-openapi = "7.4.0"
-serialization = "1.6.3"
-slf4j = "2.0.12"
+ktor = "2.3.12"
+openapi = "7.6.0"
+serialization = "1.7.1"
+slf4j = "2.0.13"
 spotless = "6.25.0"
 
 [plugins]
@@ -16,17 +16,25 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 openapi = { id = "org.openapi.generator", version.ref = "openapi" }
+plugin-publish = { id = "com.gradle.plugin-publish", version = "1.2.1" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 
 [libraries]
+# Gradle
+plugin-publish-plugin = { group = "com.gradle.publish", name = "plugin-publish-plugin", version = "1.2.1" }
+
 # Kotlin
+kotlin-bom = { group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlin" }
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
 kotlin-test-junit5 = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit5", version.ref = "kotlin" }
 
+# Kotlinx
+kotlinx-coroutines-bom = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-bom", version.ref = "coroutines" }
+
 # Reflection
-classgraph = { group = "io.github.classgraph", name = "classgraph", version = "4.8.168" }
+classgraph = { group = "io.github.classgraph", name = "classgraph", version = "4.8.174" }
 kotlinx-metadata-jvm = { group = "org.jetbrains.kotlinx", name = "kotlinx-metadata-jvm", version = "0.9.0" }
 
 # Ktor
@@ -34,14 +42,13 @@ ktor-gradle-plugin = { group = "io.ktor.plugin", name = "plugin", version.ref = 
 ktor-server-core = { group = "io.ktor", name = "ktor-server-core", version.ref = "ktor" }
 
 # Jackson
-jackson-databind = { group = "com.fasterxml.jackson.core", name = "jackson-databind", version.ref = "jackson" }
-jackson-datatype-jsr310 = { group = "com.fasterxml.jackson.datatype", name = "jackson-datatype-jsr310", version.ref = "jackson" }
-jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version.ref = "jackson" }
+jackson-annotations = { group = "com.fasterxml.jackson.core", name = "jackson-annotations", version.ref = "jackson" }
+jackson-bom = { group = "com.fasterxml.jackson", name = "jackson-bom", version.ref = "jackson" }
 
 # OpenAPI
 microprofile-openapi-api = { group = "org.eclipse.microprofile.openapi", name = "microprofile-openapi-api", version = "3.1.1" }
 openapi-gradle-plugin = { group = "org.openapitools", name = "openapi-generator-gradle-plugin", version.ref = "openapi" }
-swagger-annotations = { group = "io.swagger.core.v3", name = "swagger-annotations", version = "2.2.21" }
+swagger-annotations = { group = "io.swagger.core.v3", name = "swagger-annotations", version = "2.2.22" }
 
 # GraphQL
 graphql-gradle-plugin = { group = "com.expediagroup", name = "graphql-kotlin-gradle-plugin", version.ref = "graphql" }
